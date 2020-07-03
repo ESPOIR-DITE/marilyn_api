@@ -47,7 +47,7 @@ public class FoodService implements Iservice<Food,String> {
     public Boolean delete(String id) {
         Food food1 = get(id);
         if (food1 != null) {
-            delete(food1.getId());
+            foodRepo.delete(food1);
             return true;
         }
         return false;

@@ -46,7 +46,7 @@ public class NutritionUserPlanService  implements Iservice<NutritionUserPlan,Str
     public Boolean delete(String id) {
         NutritionUserPlan nutritionUserPlan1 = get(id);
         if (nutritionUserPlan1 != null) {
-            delete(nutritionUserPlan1.getId());
+            nutritionUserPlanRep.delete(nutritionUserPlan1);
             return true;
         }
         return false;

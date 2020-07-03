@@ -31,7 +31,7 @@ public class NutritionVideoService  implements Iservice<NutritionVideo,String> {
     public NutritionVideo update(NutritionVideo nutritionVideo) {
         NutritionVideo nutritionVideo1 = get(nutritionVideo.getId());
         if (nutritionVideo1 != null) {
-            delete(nutritionVideo1.getId());
+            nutritionVideoRep.delete(nutritionVideo1);
             return create(nutritionVideo);
         }
         return null;

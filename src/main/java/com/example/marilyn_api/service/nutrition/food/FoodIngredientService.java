@@ -6,6 +6,7 @@ import com.example.marilyn_api.service.Iservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +30,11 @@ public class FoodIngredientService implements Iservice<FoodIngredient,String> {
 
     @Override
     public FoodIngredient update(FoodIngredient foodIngredient) {
+        FoodIngredient foodIngredient1 = get(foodIngredient.getId());
+        if (foodIngredient1 != null) {
+            foodIngredientRepo.delete(foodIngredient1);
+            return create(foodIngredient);
+        }
         return null;
     }
 
@@ -39,7 +45,12 @@ public class FoodIngredientService implements Iservice<FoodIngredient,String> {
 
     @Override
     public Boolean delete(String id) {
-        return null;
+        FoodIngredient foodIngredient1 = get(id);
+        if (foodIngredient1 != null) {
+            foodIngredientRepo.delete(foodIngredient1);
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -53,8 +64,33 @@ public class FoodIngredientService implements Iservice<FoodIngredient,String> {
         return foodIngredientOptional.orElse(null);
     }
 
+    /***
+     * Return a list of Ingredients related to a particular
+     * @param ingredientId
+     * @return
+     */
     @Override
-    public List<FoodIngredient> readAllOf(String id) {
-        return null;
+    public List<FoodIngredient> readAllOf(String ingredientId) {
+        List<FoodIngredient> foodIngredientList = new ArrayList<>();
+        for(FoodIngredient foodIngredient: readAll()){
+            if(foodIngredient.getIngredientId().equals(ingredientId)){
+                foodIngredientList.add(foodIngredient);
+            }
+        }
+        return foodIngredientList;
+    }
+    /***
+     * Return a list of Ingredients related to a Food
+     * @param foodId
+     * @return
+     */
+    public List<FoodIngredient> readAllOfFood(String foodId) {
+        List<FoodIngredient> foodIngredientList = new ArrayList<>();
+        for(FoodIngredient foodIngredient: readAll()){
+            if(foodIngredient.getIngredientId().equals(foodId)){
+                foodIngredientList.add(foodIngredient);
+            }
+        }
+        return foodIngredientList;
     }
 }
