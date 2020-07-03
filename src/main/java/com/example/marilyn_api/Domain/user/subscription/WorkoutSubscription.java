@@ -9,6 +9,7 @@ public class WorkoutSubscription {
     private String id;
     private double amount;
     private Date date;
+    private String paymentTypeId;
 
     private WorkoutSubscription() {
     }
@@ -16,6 +17,11 @@ public class WorkoutSubscription {
         this.amount = builder.amount;
         this.date = builder.date;
         this.id = builder.id;
+        this.paymentTypeId = builder.paymentTypeId;
+    }
+
+    public String getPayamentTypeId() {
+        return paymentTypeId;
     }
 
     public String getId() {
@@ -31,6 +37,7 @@ public class WorkoutSubscription {
     }
     public static class Builder{
         private String id;
+        private String paymentTypeId;
         private double amount;
         private Date date;
         public Builder(String id){
@@ -38,6 +45,10 @@ public class WorkoutSubscription {
         }
         public Builder buildAmount(double amount){
             this.amount = amount;
+            return this;
+        }
+        public Builder buildPaymentTypeId(String paymentTypeId){
+            this.paymentTypeId = paymentTypeId;
             return this;
         }
         public Builder buildDate(Date date){

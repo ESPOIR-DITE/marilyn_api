@@ -9,6 +9,7 @@ public class NutritionSubscription {
     @Id
     private String id;
     private double amount;
+    private String paymentType;
     private Date date;
 
     private NutritionSubscription() {
@@ -17,6 +18,11 @@ public class NutritionSubscription {
         this.amount = builder.amount;
         this.date = builder.date;
         this.id = builder.id;
+        this.paymentType = builder.paymentType;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
     }
 
     public String getId() {
@@ -33,6 +39,7 @@ public class NutritionSubscription {
     public static class Builder{
         private String id;
         private double amount;
+        private String paymentType;
         private Date date;
         public Builder(String id){
             this.id = id;
@@ -41,6 +48,12 @@ public class NutritionSubscription {
             this.amount = amount;
             return this;
         }
+
+        public Builder buildPaymentType(String paymentType) {
+            this.paymentType = paymentType;
+            return this;
+        }
+
         public Builder buildDate(Date date){
             this.date = date;
             return this;

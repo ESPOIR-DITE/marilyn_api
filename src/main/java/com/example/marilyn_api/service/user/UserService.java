@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements Iservice<Users,String> {
@@ -21,32 +22,43 @@ public class UserService implements Iservice<Users,String> {
     }
     @Override
     public Users create(Users users) {
-        return null;
+        return usersRep.save(users);
     }
 
     @Override
     public Users update(Users users) {
+        Users users1 = get(users.getEmail());
+        if (users1 != null) {
+            delete(users1.getEmail());
+            return create(users);
+        }
         return null;
     }
 
     @Override
     public Users read(String id) {
-        return null;
+        return get(id);
     }
 
     @Override
     public Boolean delete(String id) {
-        return null;
+        Users users1 = get(id);
+        if (users1 != null) {
+            delete(users1.getEmail());
+            return true;
+        }
+        return false;
     }
 
     @Override
     public List<Users> readAll() {
-        return null;
+        return usersRep.findAll();
     }
 
     @Override
     public Users get(String id) {
-        return null;
+        Optional<Users> usersOptional = usersRep.findById(id);
+        return usersOptional.orElse(null);
     }
 
     @Override

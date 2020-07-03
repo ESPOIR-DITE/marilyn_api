@@ -7,14 +7,14 @@ import javax.persistence.Id;
 public class Gallery {
     @Id
     private String id;
-    private String galery;
+    private String gallery;
     private String description;
 
     private Gallery() {
     }
     public Gallery(Builder builder) {
         this.description = builder.description;
-        this.galery = builder.galery;
+        this.gallery = builder.galery;
         this.id = builder.id;
     }
 
@@ -22,8 +22,8 @@ public class Gallery {
         return id;
     }
 
-    public String getGalery() {
-        return galery;
+    public String getGallery() {
+        return gallery;
     }
 
     public String getDescription() {
