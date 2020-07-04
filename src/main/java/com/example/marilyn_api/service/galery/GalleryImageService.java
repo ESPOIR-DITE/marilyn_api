@@ -8,6 +8,7 @@ import com.example.marilyn_api.service.Iservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,6 +78,12 @@ public class GalleryImageService implements Iservice<GalleryImage,String> {
     }
     @Override
     public List<GalleryImage> readAllOf(String id) {
-        return null;
+        List<GalleryImage> galleryImageList = new ArrayList<>();
+        for(GalleryImage galleryImage: readAll()){
+            if(galleryImage.getGaleryId().equals(id)){
+                galleryImageList.add(galleryImage);
+            }
+        }
+        return galleryImageList;
     }
 }

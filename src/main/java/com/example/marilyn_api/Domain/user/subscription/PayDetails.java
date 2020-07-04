@@ -1,7 +1,5 @@
 package com.example.marilyn_api.Domain.user.subscription;
 
-import com.sun.xml.internal.ws.message.source.PayloadSourceMessage;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 

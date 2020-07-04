@@ -68,9 +68,17 @@ public class NutritionImageService implements Iservice<NutritionImage,String> {
     public List<NutritionImage> readAllOf(String id) {
         return null;
     }
-//    public NutritionImage readWith(String nutritionType){
-//        for(NutritionImage nutritionImage: readAll()){
-//            if(nutritionImage.)
-//        }
-//    }
+
+    /****
+     * Reading nutrition based on the nutritionId
+     * @param nutritionType
+     * @return
+     */
+    public NutritionImage readWithNutrition(String nutritionType){
+        for(NutritionImage nutritionImage: readAll()){
+            if(nutritionImage.getImageId().equals(nutritionType)){
+                return nutritionImage;
+            }
+        }return null;
+    }
 }
