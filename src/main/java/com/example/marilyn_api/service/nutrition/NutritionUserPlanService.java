@@ -64,12 +64,36 @@ public class NutritionUserPlanService  implements Iservice<NutritionUserPlan,Str
     }
 
     /****
-     * Will return all the plans of a user based on .
-     * @param id
+     * Will return all the plans of a user based on based on subscriptionId.
+     * @param
      * @return
      */
     @Override
-    public List<NutritionUserPlan> readAllOf(String id) {
+    public List<NutritionUserPlan> readAllOf(String userId) {
         return null;
+    }
+    /****
+     * Will return the NutritionUserPlan of a subscription based on based on subscriptionId.
+     * @param
+     * @return
+     */
+    public NutritionUserPlan readWithSubscriptionId(String subscriptionId){
+        for(NutritionUserPlan nutritionUserPlan: readAll()){
+            if(nutritionUserPlan.getSubdscription().equals(subscriptionId)){
+                return nutritionUserPlan;
+            }
+        }return null;
+    }
+    /****
+     * Will return the NutritionUserPlan of based on subscriptionId.
+     * @param
+     * @return
+     */
+    public NutritionUserPlan readWithNutritionId(String nutritionId){
+        for(NutritionUserPlan nutritionUserPlan: readAll()){
+            if(nutritionUserPlan.getNutritionId().equals(nutritionId)){
+                return nutritionUserPlan;
+            }
+        }return null;
     }
 }

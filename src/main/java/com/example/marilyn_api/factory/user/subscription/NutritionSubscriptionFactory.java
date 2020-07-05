@@ -6,7 +6,7 @@ import com.example.marilyn_api.util.GeneratId;
 import java.util.Date;
 
 public class NutritionSubscriptionFactory {
-    private NutritionSubscription getNutritionSubscription(double amount,Date date){
+    public static NutritionSubscription getNutritionSubscription(double amount,Date date){
         return new NutritionSubscription.Builder(GeneratId.getId(NutritionSubscriptionFactory.class))
                 .buildAmount(amount)
                 .buildDate(date)

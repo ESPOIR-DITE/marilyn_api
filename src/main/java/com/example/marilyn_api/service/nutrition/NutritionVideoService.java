@@ -21,12 +21,10 @@ public class NutritionVideoService  implements Iservice<NutritionVideo,String> {
         }
         return nutritionVideoService;
     }
-
     @Override
     public NutritionVideo create(NutritionVideo nutritionVideo) {
         return nutritionVideoRep.save(nutritionVideo);
     }
-
     @Override
     public NutritionVideo update(NutritionVideo nutritionVideo) {
         NutritionVideo nutritionVideo1 = get(nutritionVideo.getId());
@@ -36,12 +34,10 @@ public class NutritionVideoService  implements Iservice<NutritionVideo,String> {
         }
         return null;
     }
-
     @Override
     public NutritionVideo read(String id) {
         return get(id);
     }
-
     @Override
     public Boolean delete(String id) {
         NutritionVideo nutritionVideo1 = get(id);
@@ -51,20 +47,30 @@ public class NutritionVideoService  implements Iservice<NutritionVideo,String> {
         }
         return false;
     }
-
     @Override
     public List<NutritionVideo> readAll() {
         return nutritionVideoRep.findAll();
     }
-
     @Override
     public NutritionVideo get(String id) {
         Optional<NutritionVideo> nutritionVideoOptional = nutritionVideoRep.findById(id);
-        return null;
+        return nutritionVideoOptional.orElse(null);
     }
-
     @Override
     public List<NutritionVideo> readAllOf(String id) {
         return null;
+    }
+
+    /*****
+     * with nutritionId you can get NutritionVideo
+     * @param id
+     * @return
+     */
+    public NutritionVideo readWithNutrition(String id){
+        for(NutritionVideo nutritionVideo: readAll()){
+            if(nutritionVideo.getNutritionId().equals(id)){
+                return nutritionVideo;
+            }
+        }return null;
     }
 }

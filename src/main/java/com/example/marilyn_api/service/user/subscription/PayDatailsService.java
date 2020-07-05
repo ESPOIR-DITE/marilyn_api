@@ -6,6 +6,7 @@ import com.example.marilyn_api.service.Iservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,8 +64,19 @@ public class PayDatailsService implements Iservice<PayDetails,String> {
         return payDetailsOptional.orElse(null);
     }
 
+    /***
+     * Get ALl the PayDetails of a particular payTypeId based on payTypeId
+     * @param payTypeId
+     * @return
+     */
+
     @Override
-    public List<PayDetails> readAllOf(String id) {
-        return null;
+    public List<PayDetails> readAllOf(String payTypeId) {
+        List<PayDetails> payDetailsList = new ArrayList<>();
+        for(PayDetails payDetails: readAll()){
+            if(payDetails.getPayTypeId().equals(payTypeId)){
+                payDetailsList.add(payDetails);
+            }
+        }return null;
     }
 }
