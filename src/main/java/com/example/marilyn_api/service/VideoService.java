@@ -1,8 +1,7 @@
 package com.example.marilyn_api.service;
 
-import com.example.marilyn_api.Domain.Videos;
+import com.example.marilyn_api.Domain.image.Videos;
 import com.example.marilyn_api.repository.VideoRep;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

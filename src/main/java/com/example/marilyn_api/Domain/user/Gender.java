@@ -1,4 +1,4 @@
-package com.example.marilyn_api.Domain;
+package com.example.marilyn_api.Domain.user;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

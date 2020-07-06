@@ -1,6 +1,6 @@
 package com.example.marilyn_api.factory;
 
-import com.example.marilyn_api.Domain.Videos;
+import com.example.marilyn_api.Domain.image.Videos;
 import com.example.marilyn_api.util.GeneratId;
 
 public class VideoFactory {

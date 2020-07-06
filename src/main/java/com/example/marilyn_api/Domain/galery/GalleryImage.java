@@ -8,12 +8,12 @@ public class GalleryImage {
     @Id
     private String id;
     private String imageId;
-    private String galeryId;
+    private String galleryId;
 
     private GalleryImage() {
     }
     public GalleryImage(Builder builder) {
-        this.galeryId = builder.galeryId;
+        this.galleryId = builder.galeryId;
         this.id = builder.id;
         this.imageId = builder.imageId;
     }
@@ -26,8 +26,8 @@ public class GalleryImage {
         return imageId;
     }
 
-    public String getGaleryId() {
-        return galeryId;
+    public String getGalleryId() {
+        return galleryId;
     }
     public static class Builder{
         private String id;

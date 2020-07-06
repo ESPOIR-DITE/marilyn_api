@@ -1,6 +1,6 @@
 package com.example.marilyn_api.service;
 
-import com.example.marilyn_api.Domain.Gender;
+import com.example.marilyn_api.Domain.user.Gender;
 import com.example.marilyn_api.repository.GenderRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("fcma/workout_subscription")
+@RequestMapping("fcma/WorkOutSubscription")
 public class WorkOutSubscriptionController implements Icontroller<WorkoutSubscription,String> {
     @Autowired
     private WorkoutSubscriptionService workoutSubscriptionService;

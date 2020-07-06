@@ -8,16 +8,16 @@ public class PayDetails {
     @Id
     private String id;
     private String payTypeId;
-    private String account;
-    private String bank;
+    private String accountId;
+    private String bankAccount;
     private String description;
 
     private PayDetails() {
     }
     public PayDetails(Builder builder) {
         this.id = builder.id;
-        this.account = builder.account;
-        this.bank = builder.bank;
+        this.accountId = builder.account;
+        this.bankAccount = builder.bank;
         this.payTypeId = builder.payTypeId;
         this.description = builder.description;
     }
@@ -30,12 +30,12 @@ public class PayDetails {
         return payTypeId;
     }
 
-    public String getAccount() {
-        return account;
+    public String getAccountId() {
+        return accountId;
     }
 
-    public String getBank() {
-        return bank;
+    public String getBankAccount() {
+        return bankAccount;
     }
 
     public String getDescription() {

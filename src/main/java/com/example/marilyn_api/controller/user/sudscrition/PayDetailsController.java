@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("fcma/paydetails/")
+@RequestMapping("fcma/pay_details/")
 public class PayDetailsController implements Icontroller<PayDetails,String> {
     @Autowired
     private PayDatailsService payDatailsService;

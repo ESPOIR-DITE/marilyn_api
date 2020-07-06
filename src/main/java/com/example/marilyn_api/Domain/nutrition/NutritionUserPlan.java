@@ -10,7 +10,7 @@ public class NutritionUserPlan {
     private String id;
     private String email;
     private String nutritionId;
-    private String subdscriptionid;
+    private String subscriptionId;
     private Date date;
 
     public NutritionUserPlan() {
@@ -20,7 +20,7 @@ public class NutritionUserPlan {
         this.email = builder.email;
         this.id = builder.id;
         this.nutritionId = builder.nutritionId;
-        this.subdscriptionid = builder.subdscriptionid;
+        this.subscriptionId = builder.subdscriptionid;
     }
 
     public String getNutritionId() {
@@ -36,7 +36,7 @@ public class NutritionUserPlan {
     }
 
     public String getSubdscription() {
-        return subdscriptionid;
+        return subscriptionId;
     }
 
     public Date getDate() {

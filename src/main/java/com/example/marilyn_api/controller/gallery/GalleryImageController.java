@@ -18,7 +18,7 @@ public class GalleryImageController implements Icontroller<GalleryImage,String> 
     @PostMapping("create")
     @Override
     public GalleryImage create(@RequestBody GalleryImage galleryImage) {
-        GalleryImage galleryImage1 = GalleryImageFactory.getGalleryImage(galleryImage.getImageId(),galleryImage.getGaleryId());
+        GalleryImage galleryImage1 = GalleryImageFactory.getGalleryImage(galleryImage.getImageId(),galleryImage.getGalleryId());
         return galleryImageService.create(galleryImage1);
     }
 

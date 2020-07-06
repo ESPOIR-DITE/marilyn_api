@@ -1,6 +1,6 @@
 package com.example.marilyn_api.factory;
 
-import com.example.marilyn_api.Domain.Gender;
+import com.example.marilyn_api.Domain.user.Gender;
 import com.example.marilyn_api.util.GeneratId;
 
 public class GenderFactory {

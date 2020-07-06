@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Ingredient {
     @Id
     private String id;
-    private String ingredient;
+    private String name;
     private  String description;
 
     private Ingredient() {
@@ -15,15 +15,15 @@ public class Ingredient {
     public Ingredient(Builder builder) {
         this.description = builder.description;
         this.id = builder.id;
-        this.ingredient = builder.ingredient;
+        this.name = builder.ingredient;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getIngredient() {
-        return ingredient;
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {

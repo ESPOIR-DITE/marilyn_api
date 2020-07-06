@@ -1,9 +1,7 @@
 package com.example.marilyn_api.service.galery;
 
-import com.example.marilyn_api.Domain.galery.Gallery;
 import com.example.marilyn_api.Domain.galery.GalleryImage;
 import com.example.marilyn_api.repository.gallery.GalleryImageRepo;
-import com.example.marilyn_api.repository.gallery.GalleryRepo;
 import com.example.marilyn_api.service.Iservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,7 +78,7 @@ public class GalleryImageService implements Iservice<GalleryImage,String> {
     public List<GalleryImage> readAllOf(String id) {
         List<GalleryImage> galleryImageList = new ArrayList<>();
         for(GalleryImage galleryImage: readAll()){
-            if(galleryImage.getGaleryId().equals(id)){
+            if(galleryImage.getGalleryId().equals(id)){
                 galleryImageList.add(galleryImage);
             }
         }

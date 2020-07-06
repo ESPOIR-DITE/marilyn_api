@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("fcma/health_user/")
+@RequestMapping("fcma/nutrition_subscription/")
 public class NutritionSubscriptionController implements Icontroller<NutritionSubscription,String> {
     @Autowired
     private NutritionSubscriptionService nutritionSubscriptionService;
