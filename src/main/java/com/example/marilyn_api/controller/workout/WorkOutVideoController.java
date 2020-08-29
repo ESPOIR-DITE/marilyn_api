@@ -1,6 +1,6 @@
 package com.example.marilyn_api.controller.workout;
 
-import com.example.marilyn_api.Domain.workout.WorkVideo;
+import com.example.marilyn_api.Domain.workout.WorkExercise;
 import com.example.marilyn_api.controller.Icontroller;
 import com.example.marilyn_api.service.workout.WorkoutVideoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,24 +10,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping("fcma/workout_video")
-public class WorkOutVideoController implements Icontroller<WorkVideo,String> {
+public class WorkOutVideoController implements Icontroller<WorkExercise,String> {
     @Autowired
     private WorkoutVideoService workoutVideoService;
 
     @PostMapping("create")
     @Override
-    public WorkVideo create(@RequestBody WorkVideo workVideo) {
-        return workoutVideoService.create(workVideo);
+    public WorkExercise create(@RequestBody WorkExercise workExercise) {
+        return workoutVideoService.create(workExercise);
     }
     @GetMapping("read")
     @Override
-    public WorkVideo read(@RequestParam("id") String id) {
+    public WorkExercise read(@RequestParam("id") String id) {
         return workoutVideoService.read(id);
     }
     @PostMapping("update")
     @Override
-    public WorkVideo update(@RequestBody WorkVideo workVideo) {
-        return workoutVideoService.update(workVideo);
+    public WorkExercise update(@RequestBody WorkExercise workExercise) {
+        return workoutVideoService.update(workExercise);
     }
     @GetMapping("delete")
     @Override
@@ -36,12 +36,12 @@ public class WorkOutVideoController implements Icontroller<WorkVideo,String> {
     }
     @GetMapping("readAll")
     @Override
-    public List<WorkVideo> readALl() {
+    public List<WorkExercise> readALl() {
         return workoutVideoService.readAll();
     }
     @GetMapping("readAllOff")
     @Override
-    public List<WorkVideo> readALlOff(@RequestParam("id") String id) {
+    public List<WorkExercise> readALlOff(@RequestParam("id") String id) {
         return workoutVideoService.readAllOf(id);
     }
 }

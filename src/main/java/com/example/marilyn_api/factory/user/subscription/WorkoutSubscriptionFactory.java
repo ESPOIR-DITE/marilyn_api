@@ -7,10 +7,12 @@ import com.example.marilyn_api.util.GeneratId;
 import java.util.Date;
 
 public class WorkoutSubscriptionFactory {
-    private WorkoutSubscription getNutritionSubscription(double amount, Date date){
+    private WorkoutSubscription getNutritionSubscription(Date date,String workoutPlanId,String email,String paymentTypeId){
         return new WorkoutSubscription.Builder(GeneratId.getId(NutritionSubscriptionFactory.class))
-                .buildAmount(amount)
+                .buildEmail(email)
+                .buildWorkoutPlanId(workoutPlanId)
                 .buildDate(date)
+                .buildPaymentTypeId(paymentTypeId)
                 .build();
     }
 }

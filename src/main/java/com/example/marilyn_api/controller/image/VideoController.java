@@ -3,7 +3,7 @@ package com.example.marilyn_api.controller.image;
 import com.example.marilyn_api.Domain.image.Videos;
 import com.example.marilyn_api.controller.Icontroller;
 import com.example.marilyn_api.factory.VideoFactory;
-import com.example.marilyn_api.service.VideoService;
+import com.example.marilyn_api.service.image.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

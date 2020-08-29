@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("fcma/workout_video")
+@RequestMapping("fcma/workout_image")
 public class WorkOutImageController implements Icontroller<WorkOutImage,String> {
     @Autowired
     private WorkoutImageService workoutImageService;

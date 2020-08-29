@@ -2,6 +2,7 @@ package com.example.marilyn_api.controller.nutrition.food;
 
 import com.example.marilyn_api.Domain.nutrition.food.Ingredient;
 import com.example.marilyn_api.controller.Icontroller;
+import com.example.marilyn_api.factory.nutrition.food.IngredientFactory;
 import com.example.marilyn_api.service.nutrition.food.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,9 @@ public class IngredientController implements Icontroller<Ingredient,String> {
     @PostMapping("create")
     @Override
     public Ingredient create(@RequestBody Ingredient ingredient) {
-        return ingredientService.create(ingredient);
+        System.out.println("we are in: "+ingredient.getDescription());
+        Ingredient ingredient1 = IngredientFactory.getIngredient(ingredient.getName(),ingredient.getDescription());
+        return ingredientService.create(ingredient1);
     }
 
     @GetMapping("read")

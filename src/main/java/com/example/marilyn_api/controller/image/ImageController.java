@@ -7,7 +7,7 @@ import com.example.marilyn_api.service.image.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -18,9 +18,8 @@ public class ImageController implements Icontroller<Images,String> {
 
     @PostMapping("create")
     @Override
-    public Images create(@RequestBody Images images) {
-        Images images1 = ImageFactory.getImages(images.getVideo(),images.getDescription());
-        return imageService.create(images1);
+    public Images create(@RequestBody Images images) throws IOException {
+        return imageService.create(images);
     }
 
     @GetMapping("read")
@@ -31,7 +30,7 @@ public class ImageController implements Icontroller<Images,String> {
 
     @PostMapping("update")
     @Override
-    public Images update(@RequestBody Images images) {
+    public Images update(@RequestBody Images images) throws IOException {
         return imageService.update(images);
     }
 
@@ -46,6 +45,7 @@ public class ImageController implements Icontroller<Images,String> {
     public List<Images> readALl() {
         return imageService.readAll();
     }
+    @GetMapping("readOf")
 
     @Override
     public List<Images> readALlOff(String id) {

@@ -24,7 +24,7 @@ public class IngredientService implements Iservice<Ingredient,String> {
 
     @Override
     public Ingredient create(Ingredient ingredient) {
-        return null;
+        return ingredientRepo.save(ingredient);
     }
 
     @Override
@@ -70,6 +70,6 @@ public class IngredientService implements Iservice<Ingredient,String> {
      */
     @Override
     public List<Ingredient> readAllOf(String id) {
-        return null;
+        return ingredientRepo.findAll();
     }
 }

@@ -10,13 +10,21 @@ public class WorkoutType {
     private String id;
     private String workOutType;
     private Date date;
+    private String description;
+
 
     private WorkoutType() {
     }
+
+    public String getDescription() {
+        return description;
+    }
+
     public WorkoutType(Builder builder) {
         this.date = builder.date;
         this.id = builder.id;
         this.workOutType = builder.workOutType;
+        this.description = builder.description;
     }
 
     public String getId() {
@@ -34,6 +42,7 @@ public class WorkoutType {
         private String id;
         private String workOutType;
         private Date date;
+        private String description;
         public Builder(String id){
             this.id = id;
         }
@@ -43,6 +52,10 @@ public class WorkoutType {
         }
         public Builder buildDate(Date date){
             this.date = date;
+            return this;
+        }
+        public Builder buildDescription(String description){
+            this.description = description;
             return this;
         }
         public WorkoutType build(){

@@ -8,6 +8,7 @@ import java.util.Date;
 public class NutritionSubscription {
     @Id
     private String id;
+    private String email;
     private double amount;
     private String paymentType;
     private Date date;

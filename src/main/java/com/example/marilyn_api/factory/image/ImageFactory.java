@@ -10,4 +10,10 @@ public class ImageFactory {
                 .buildVideo(video)
                 .build();
     }
+    public static Images getImageToUpdate(String id,byte[] video,String description){
+        return new Images.Builder(id)
+                .buildDescription(description)
+                .buildVideo(video)
+                .build();
+    }
 }

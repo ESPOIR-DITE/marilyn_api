@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Paths;
 
 /**
@@ -14,7 +13,8 @@ import java.nio.file.Paths;
  * @author www.codejava.net
  *
  */
-public class ImageResizer {
+public class ImageResizer2 {
+
     /**
      * Resizes an image to a absolute width and height (the image may not be
      * proportional)
@@ -23,32 +23,38 @@ public class ImageResizer {
      * @param scaledHeight absolute height in pixels
      * @throws IOException
      */
+
+
     public static void resize(String inputImagePath, int scaledWidth, int scaledHeight)
             throws IOException {
         // reads input image
+        //ClassLoader classLoader = new ImageResizer().getClass().getClassLoader();
+        //File file = new File(classLoader.getResource(inputImagePath).getFile());
         File file = new File(inputImagePath);
 
         //File inputFile = new File(inputImagePath);
         BufferedImage inputImage = ImageIO.read(file);
 
         // creates output image
-        BufferedImage outputImage = new BufferedImage(scaledWidth, scaledHeight, BufferedImage.TYPE_INT_RGB);
-        //BufferedImage outputImage = new BufferedImage(scaledWidth, scaledHeight, inputImage.getType());
+        BufferedImage outputImage = new BufferedImage(scaledWidth, scaledHeight, inputImage.getType());
 
         // scales the input image to the output image
         Graphics2D g2d = outputImage.createGraphics();
         g2d.drawImage(inputImage, 0, 0, scaledWidth, scaledHeight, null);
         g2d.dispose();
 
+        // extracts extension of output file
+        //String formatName = outputImagePath.substring(outputImagePath.lastIndexOf(".") + 1);
+
         // writes to output file
-        String fileName1 = Paths.get("").toAbsolutePath().toString()+"resized.gif";
+        String fileName1 = Paths.get("").toAbsolutePath().toString()+"resized.jpg";
         File inputFile = new File(fileName1);
         //File inputFile = new File("src/main/java/company/ac/za/studentbookstore/util/resized.jpg");
 
         if(inputFile != null){
             //File f = new File(url.getFile());
             System.out.println(inputFile.getPath());
-            ImageIO.write(outputImage, "gif", inputFile);
+            ImageIO.write(outputImage, "jpg", inputFile);
         }
         //File file1 = new File(dir+"resized.jpeg");
     }
@@ -86,7 +92,7 @@ public class ImageResizer {
         if(bimg.getWidth()>=5000){
             try{
                  percent = 0.16;
-                resize(fileName, percent);
+                ImageResizer.resize(fileName, percent);
             } catch (IOException ex) {
             System.out.println("Error resizing the image.");
             ex.printStackTrace();
@@ -95,7 +101,7 @@ public class ImageResizer {
         }else if(bimg.getWidth()>=3000){
             try{
                 percent = 0.27;
-                resize(fileName, percent);
+                ImageResizer.resize(fileName, percent);
             } catch (IOException ex) {
                 System.out.println("Error resizing the image.");
                 ex.printStackTrace();
@@ -103,16 +109,15 @@ public class ImageResizer {
         }else if(bimg.getWidth()>=1000){
             try {
                 percent = 0.8;
-                resize(fileName, percent);
+                ImageResizer.resize(fileName, percent);
             } catch (IOException ex) {
                 System.out.println("Error resizing the image.");
                 ex.printStackTrace();
             }
-
         }else
             try {
                 percent = 1;
-                resize(fileName,  percent);
+                ImageResizer.resize(fileName,  percent);
             } catch (IOException ex) {
                 System.out.println("Error resizing the image.");
                 ex.printStackTrace();

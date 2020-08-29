@@ -6,10 +6,11 @@ import com.example.marilyn_api.util.GeneratId;
 import java.util.Date;
 
 public class WorkOutTypeFactory {
-    public static WorkoutType getWorkoutType(String workOutType,Date date){
+    public static WorkoutType getWorkoutType(String workOutType,Date date,String description){
         return new WorkoutType.Builder(GeneratId.getId( WorkOutTypeFactory.class))
                 .buildDate(date)
                 .buildWorkOutType(workOutType)
+                .buildDescription(description)
                 .build();
     }
 }

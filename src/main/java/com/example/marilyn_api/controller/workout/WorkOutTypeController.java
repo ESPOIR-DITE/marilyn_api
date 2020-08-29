@@ -2,6 +2,8 @@ package com.example.marilyn_api.controller.workout;
 
 import com.example.marilyn_api.Domain.workout.WorkoutType;
 import com.example.marilyn_api.controller.Icontroller;
+import com.example.marilyn_api.factory.workout.WorkOutFactory;
+import com.example.marilyn_api.factory.workout.WorkOutTypeFactory;
 import com.example.marilyn_api.service.workout.WorkOutTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,8 @@ public class WorkOutTypeController implements Icontroller<WorkoutType,String> {
     @PostMapping("create")
     @Override
     public WorkoutType create(@RequestBody WorkoutType workoutType) {
-        return workOutTypeService.create(workoutType);
+        WorkoutType workoutType1 = WorkOutTypeFactory.getWorkoutType(workoutType.getWorkOutType(),workoutType.getDate(),workoutType.getDescription());
+        return workOutTypeService.create(workoutType1);
     }
     @GetMapping("read")
     @Override

@@ -1,29 +1,27 @@
-package com.example.marilyn_api.Domain.workout;
+package com.example.marilyn_api.Domain.image;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class WorkVideo {
+public class Gifs {
     @Id
     private String id;
-    private String workOutId;
+    private byte[] gif;
     private String description;
 
-    private WorkVideo() {
-    }
-    public WorkVideo(Builder builder) {
-        this.id = builder.id;
+    public Gifs(Builder builder) {
         this.description = builder.description;
-        this.workOutId = builder.workOutId;
+        this.gif = builder.gif;
+        this.id = builder.id;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getWorkOutId() {
-        return workOutId;
+    public byte[] getGif() {
+        return gif;
     }
 
     public String getDescription() {
@@ -31,21 +29,22 @@ public class WorkVideo {
     }
     public static class Builder{
         private String id;
-        private String workOutId;
+        private byte[] gif;
         private String description;
+
         public Builder(String id){
             this.id = id;
         }
-        public Builder buildWorkoutId(String workOutId){
-            this.workOutId = workOutId;
+        public Builder buildGif(byte[] gif){
+            this.gif = gif;
             return this;
         }
         public Builder buildDescription(String description){
             this.description = description;
             return this;
         }
-        public WorkVideo build(){
-            return new WorkVideo(this);
+        public Gifs build(){
+            return new Gifs(this);
         }
     }
 }

@@ -8,7 +8,7 @@ import java.util.Date;
 public class WorkOutPlan {
     @Id
     private String id;
-    private String email;
+    private String name;
     private String subscriptionId;
     private Date date;
 
@@ -16,7 +16,7 @@ public class WorkOutPlan {
     }
     public WorkOutPlan(Builder builder) {
         this.date = builder.date;
-        this.email = builder.email;
+        this.name = builder.name;
         this.id = builder.id;
         this.subscriptionId = builder.subscriptionId;
     }
@@ -25,8 +25,8 @@ public class WorkOutPlan {
         return id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getName() {
+        return name;
     }
 
     public String getSubscriptionId() {
@@ -38,14 +38,14 @@ public class WorkOutPlan {
     }
     public static class Builder{
         private String id;
-        private String email;
+        private String name;
         private String subscriptionId;
         private Date date;
         public Builder(String id){
             this.id = id;
         }
         public Builder buildEmail(String email){
-            this.email = email;
+            this.name = email;
             return this;
         }
         public Builder buildSubscription(String subscriptionId){

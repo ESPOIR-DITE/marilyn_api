@@ -1,7 +1,8 @@
-package com.example.marilyn_api.service;
+package com.example.marilyn_api.service.image;
 
 import com.example.marilyn_api.Domain.image.Videos;
 import com.example.marilyn_api.repository.VideoRep;
+import com.example.marilyn_api.service.Iservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class VideoService implements Iservice<Videos,String>{
+public class VideoService implements Iservice<Videos,String> {
     private static VideoService videoService;
     @Autowired
     private VideoRep videoRep;

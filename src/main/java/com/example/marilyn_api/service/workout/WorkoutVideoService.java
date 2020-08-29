@@ -1,6 +1,6 @@
 package com.example.marilyn_api.service.workout;
 
-import com.example.marilyn_api.Domain.workout.WorkVideo;
+import com.example.marilyn_api.Domain.workout.WorkExercise;
 import com.example.marilyn_api.repository.workout.WorkOutVideoRep;
 import com.example.marilyn_api.service.Iservice;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class WorkoutVideoService implements Iservice<WorkVideo,String> {
+public class WorkoutVideoService implements Iservice<WorkExercise,String> {
     private static WorkoutVideoService workoutVideoService;
     @Autowired
     private WorkOutVideoRep workOutVideoRep;
@@ -23,48 +23,48 @@ public class WorkoutVideoService implements Iservice<WorkVideo,String> {
     }
 
     @Override
-    public WorkVideo create(WorkVideo workVideo) {
-        return workOutVideoRep.save(workVideo);
+    public WorkExercise create(WorkExercise workExercise) {
+        return workOutVideoRep.save(workExercise);
     }
 
     @Override
-    public WorkVideo update(WorkVideo workVideo) {
-        WorkVideo workVideo1 = get(workVideo.getId());
-        if (workVideo1 != null) {
-            workOutVideoRep.delete(workVideo1);
-            return create(workVideo);
+    public WorkExercise update(WorkExercise workExercise) {
+        WorkExercise workExercise1 = get(workExercise.getId());
+        if (workExercise1 != null) {
+            workOutVideoRep.delete(workExercise1);
+            return create(workExercise);
         }
         return null;
     }
 
     @Override
-    public WorkVideo read(String id) {
+    public WorkExercise read(String id) {
         return get(id);
     }
 
     @Override
     public Boolean delete(String id) {
-        WorkVideo workVideo1 = get(id);
-        if (workVideo1 != null) {
-            workOutVideoRep.delete(workVideo1);
+        WorkExercise workExercise1 = get(id);
+        if (workExercise1 != null) {
+            workOutVideoRep.delete(workExercise1);
             return true;
         }
         return false;
     }
 
     @Override
-    public List<WorkVideo> readAll() {
+    public List<WorkExercise> readAll() {
         return workOutVideoRep.findAll();
     }
 
     @Override
-    public WorkVideo get(String id) {
-        Optional<WorkVideo> workVideOptional = workOutVideoRep.findById(id);
+    public WorkExercise get(String id) {
+        Optional<WorkExercise> workVideOptional = workOutVideoRep.findById(id);
         return workVideOptional.orElse(null);
     }
 
     @Override
-    public List<WorkVideo> readAllOf(String id) {
+    public List<WorkExercise> readAllOf(String id) {
         return null;
     }
 
